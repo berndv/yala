@@ -19,41 +19,26 @@ package org.sourcepit.yala
 /**
  * @author Bernd Vogt <bernd.vogt@sourcepit.org>
  */
-class Functional<T, R> {
+class FunctionRef {
 
-	doSth(Integer i) : Integer {
-		return 0
+	val String name
+	
+	val Function<(Integer, String) String ! Error> foo = (i, str) -> {
+		return ""
 	}
 	
-	doSth(Float i) {
-		return 0
-	}
+	func Foo (Integer, String) String ! Error
 	
-	doSth(Double i) : Integer ! IllegalArgumentException {
-		return 0
+	func Bar extends Foo
+
+	doSth(Function<(Integer, String) String ! Error> callback, int i) {
+		try {
+			Float f = callback(10,"") + i
+		} catch (e Error) {
+			e.printStackTrace()
+		}
+		
+		String str = foo(1, "")
 	}
-	
-	doSth(String str, Integer i) : Object {
-		return null
-	}
-	
-	doSth(T t)(R) {
-		return null
-	}
-	
-	doSth(String str) : String, Integer {
-		return "", 0
-	}
-	
-	protected doSth(Byte b) : Object {
-		return 0
-	}
-	
-	package doSth(Boolean b) : Object {
-		return false
-	}
-	
-	private doSth(Long l) : Object {
-		return 0
-	}
+
 }
