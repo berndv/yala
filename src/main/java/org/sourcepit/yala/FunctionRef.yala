@@ -27,11 +27,15 @@ class FunctionRef {
 		return ""
 	}
 	
-	func Foo (Integer, String) String ! Error
+	func Foo (Integer, String) : String ! Error
 	
-	func Bar extends Foo
+	val foo(Integer) : String, Double, Float ! Error = (i) -> {
+		return "", 0, 0
+	}
+	
+	const foo(Integer) : String, Double, Float ! Error
 
-	doSth(Function<(Integer, String) String ! Error> callback, int i) {
+	doSth( callback(Integer,String):Float!Error, String name ) {
 		try {
 			Float f = callback(10,"") + i
 		} catch (e Error) {
